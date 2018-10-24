@@ -1,7 +1,5 @@
-﻿  //  (function () {
-
-
-    if (authenticate()) {
+﻿
+    if (getCookie('username')) {
         startUp();
     } else {
         window.location = 'login.html';
@@ -9,15 +7,11 @@
 
 
     function getCookie(name) {
-        return 'name=amy;';
+        return true;
     }
 
-    function authenticate() {
-        return false;
-    }
-
+   
 
     function startUp() {
         document.write('this is the cart');
     }
-//})();
