@@ -1,5 +1,5 @@
 ﻿function login() {
-
+   
     var user = document.querySelector("#inputUser").value;
     document.write(user);
     if (LoginService.login(user))

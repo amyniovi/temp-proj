@@ -160,6 +160,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\helper.js" />
     <Content Include="app\index.js" />
     <Content Include="app\login.js" />
     <Content Include="Content\bootstrap-theme.css" />
