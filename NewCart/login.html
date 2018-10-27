@@ -8,27 +8,29 @@
     <link href="Content/login.css" rel="stylesheet" />
 </head>
 <body id="LoginForm">
-    <div class="container">
-        <div class="login-form">
-            <div class="main-div">
-                <div class="panel">
-                    <h2> Login</h2>
-                    <p>Please enter your username</p>
-                </div>
-                <form id="Login">
-                    <div class="form-group">
-
-                        <input type="text" class="form-control" id="inputUser" placeholder="Username" >
-                    </div>
-                
-                    <div class="forgot">
-                        <a href="reset.html">Forgot password?</a>
-                    </div>
-                    <button type="submit" onclick="login()" class="btn btn-primary">Login</button>
-                </form>
+<div class="container">
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <h2> Login</h2>
+                <p>Please enter your username</p>
             </div>
+            <form id="loginFrm">
+                <div class="form-group">
+
+                    <input type="text" class="form-control" id="inputUser" placeholder="Username">
+                </div>
+
+                <div class="forgot">
+                    <a href="reset.html">Forgot password?</a>
+                </div>
+                <button type="submit" id="loginBtn" class="btn btn-primary">Login</button>
+            </form>
         </div>
     </div>
-    <script src="app/login.js"></script>
+</div>
+
+    <script type="module" src="app/helper.js"></script>
+    <script type="module" src="app/login.js"></script>
 </body>
 </html>

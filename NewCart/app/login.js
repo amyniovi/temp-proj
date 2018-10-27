@@ -1,33 +1,31 @@
-﻿function login() {
-   
-    var user = document.querySelector("#inputUser").value;
-    document.write(user);
-    if (LoginService.login(user))
-     window.location = "index.html";
-}
+﻿'use strict';
 
+import { isEmpty } from './helper.js';
 
+(function () {
 
-var LoginService = (function () {
+    var loginService = (function () {
 
-   
+        function setAuthCookie() {
+            var user = document.querySelector("#inputUser").value;
+            if (isEmpty(user))
+                return;
+            // we are using the session default "expires" 
+            document.cookie = `username=${user};`;
+        }
 
-    function setAuthCookie(user) {
-        //var currentDate = new Date();
-        //currentDate.setHours(currentDate.getHours() + 1);
-        //document.write(currentDate.toUTCString());
-        //date not set correctly here we are using the session default
-        document.cookie = `username=${user};`;//expires=${currentDate.toUTCString()};
+        return { login: setAuthCookie };
+
+    })();
+
+    var $frm = document.querySelector('#loginFrm');
+
+    $frm.onsubmit = authenticate;
+
+    function authenticate(e) {
+        e.preventDefault();
+        loginService.login();
+        window.location.replace("index.html");
+        return false;
     }
-
-    function login(user) {
-        //return new Promise(function(resolve, reject) {
-            
-        //});
-        setAuthCookie(user);
-        return true;
-    }
-
-    return { login : login };
-
 })();
