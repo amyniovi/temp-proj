@@ -12,13 +12,27 @@ import { getCookie } from './helper.js';
         }
     };
 
+    //var options = 
+    //var ApiRequest = 
+
     checkAuth();
 
     function loadApp() {
-       // var data = fetch('').then().catch();
+        var data = fetch('').then().catch();
     }
 
 })();
+
+/*
+ <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+
+  <!-- Table -->
+  <table class="table">
+    ...
+  </table>
+</div>*/
 
 //comments/improvements
 //        document.cookie = "username" + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
