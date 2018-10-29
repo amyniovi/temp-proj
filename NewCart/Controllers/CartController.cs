@@ -16,11 +16,11 @@ namespace NewCart.Controllers
     public class CartController : ApiController
     {
         [Route("{username}")]
-        public Task<IHttpActionResult> Get()
+        public IHttpActionResult Get()
         {
             var result = new List<CartItem>();
-            result.Add(new CartItem(){Name = "bread", Cost});
-
+            result.Add(new CartItem(){Name = "bread"});
+            return Ok(result);
         }
     }
 }

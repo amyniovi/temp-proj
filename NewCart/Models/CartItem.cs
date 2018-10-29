@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 /*
  * I am assumming any Item Discounts Should be Calculated by the Item itself according to the tell dont ask principle
@@ -16,6 +14,8 @@ namespace NewCart.Models
         public decimal TotalItemCost => TotalPrice();
         public decimal CostPerUnit { get; set; }
         public int Qty { get; set; }
+        public string Info { get; set; } = String.Empty;
+
         public Dictionary<string, Func<int, decimal, decimal>> DiscountRules { get; set; }
 
         public CartItem()
@@ -36,7 +36,6 @@ namespace NewCart.Models
             {
                 if (rule.Key == this.Name)
                     return rule.Value(this.Qty,CostPerUnit);
-
             }
             return total;
         }
