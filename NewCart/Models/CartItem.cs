@@ -16,7 +16,7 @@ namespace NewCart.Models
         public int Qty { get; set; }
         public string Info { get; set; } = String.Empty;
 
-        public Dictionary<string, Func<int, decimal, decimal>> DiscountRules { get; set; }
+        public Dictionary<string, Func<int, decimal, decimal>> DiscountRules { get; set; } = new Dictionary<string, Func<int, decimal, decimal>>();
 
         public CartItem()
         {

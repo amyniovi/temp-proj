@@ -34,14 +34,17 @@ namespace NewCart.Models.Calculators
         public bool IsEligible(IEnumerable<CartItem> items)
         {
             var cartItems = items as IList<CartItem> ?? items.ToList();
-            return cartItems.Count(item => item.Name == "butter") >= 2 && cartItems.Any(item => item.Name == "bread");
+            return cartItems.Any(item => item.Name == "butter" && item.Qty >= 2) && cartItems.Any(item => item.Name == "bread");
         }
 
         public decimal Discount(IEnumerable<CartItem> items)
         {
             var cartItems = items as IList<CartItem> ?? items.ToList();
-            var discountedBreadCount = Math.Floor((decimal)cartItems.Count(item => item.Name == "bread") / 2);
-            var breadUnitCost = cartItems.First(item => item.Name == "bread").TotalItemCost;
+            var breadItem = cartItems.FirstOrDefault(item => item.Name == "bread");
+            if (breadItem == null)
+                return 0m;
+            var discountedBreadCount = Math.Floor((decimal)breadItem.Qty)/2;
+            var breadUnitCost = cartItems.First(item => item.Name == "bread").CostPerUnit;
             var discount = discountedBreadCount * breadUnitCost * 0.5m;
             return discount;
         }
